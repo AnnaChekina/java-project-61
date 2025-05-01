@@ -10,8 +10,7 @@ import java.util.Scanner;
 
 public class App {
 
-    static Scanner scanner = new Scanner(System.in);
-    static String numMenu;
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
@@ -25,12 +24,12 @@ public class App {
 
         checkNumMenu();
 
-        scanner.close();
+        SCANNER.close();
     }
 
     public static void checkNumMenu() {
         System.out.print("Your choice: ");
-        numMenu = scanner.nextLine().trim();
+        String numMenu = SCANNER.nextLine().trim();
 
         switch (numMenu) {
             case "1":
