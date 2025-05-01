@@ -8,6 +8,8 @@ public final class Engine {
         throw new IllegalStateException("Utility class");
     }
 
+    private static final int QUANTITY_ROUNDS = 3;
+
     public static void start(String gameConditions, String[] questions, String[] corAnswers) {
 
         Cli.greeting();
@@ -18,7 +20,7 @@ public final class Engine {
 
         boolean gameOver = true;
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < QUANTITY_ROUNDS; i++) {
             System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
             String answer = scanner.nextLine().trim();

@@ -11,6 +11,7 @@ public final class Calc {
 
     private static final Random RANDOM = new Random();
     private static final int MAX_RANDOM_NUMBER = 100;
+    private static final int QUANTITY_ROUNDS = 3;
 
     static int getRandomNumber() {
         return RANDOM.nextInt(MAX_RANDOM_NUMBER) + 1;
@@ -24,15 +25,15 @@ public final class Calc {
 
     public static void calcGame() {
         String gameConditions = "What is the result of the expression?";
-        String[] questions = new String[3];
-        String[] corAnswers = new String[3];
+        String[] questions = new String[QUANTITY_ROUNDS];
+        String[] corAnswers = new String[QUANTITY_ROUNDS];
 
         int randomNumber1;
         int randomNumber2;
         String randomSign;
         int corAnswer;
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < QUANTITY_ROUNDS; i++) {
             randomNumber1 = getRandomNumber();
             randomNumber2 = getRandomNumber();
             randomSign = getRandomSign();

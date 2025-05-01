@@ -13,6 +13,7 @@ public final class Progression {
     private static final int MAX_RANDOM_FIRST_NUMBER = 20;
     private static final int MAX_RANDOM_STEP = 10;
     private static final int MAX_RANDOM_POSITION = 10;
+    private static final int QUANTITY_ROUNDS = 3;
 
     static String[] generateRoundData() {
         int randomFirstNumber = RANDOM.nextInt(MAX_RANDOM_FIRST_NUMBER) + 1;
@@ -36,10 +37,10 @@ public final class Progression {
 
     public static void progressionGame() {
         String gameConditions = "What number is missing in the progression?";
-        String[] questions = new String[3];
-        String[] corAnswers = new String[3];
+        String[] questions = new String[QUANTITY_ROUNDS];
+        String[] corAnswers = new String[QUANTITY_ROUNDS];
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < QUANTITY_ROUNDS; i++) {
             String[] roundData = generateRoundData();
 
             questions[i] = roundData[0];
