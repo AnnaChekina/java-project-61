@@ -17,6 +17,15 @@ public final class GCD {
         return RANDOM.nextInt(MAX_RANDOM_NUMBER) + 1;
     }
 
+    static int getGCD(int num1, int num2) {
+        while (num2 != 0) {
+            int tmp = num1 % num2;
+            num1 = num2;
+            num2 = tmp;
+        }
+        return num1;
+    }
+
     public static void gcdGame() {
         String gameConditions = "Find the greatest common divisor of given numbers.";
         String[] questions = new String[QUANTITY_ROUNDS];
@@ -24,23 +33,13 @@ public final class GCD {
 
         int randomNumber1;
         int randomNumber2;
-        int corAnswer;
 
         for (var i = 0; i < QUANTITY_ROUNDS; i++) {
             randomNumber1 = getRandomNumber();
             randomNumber2 = getRandomNumber();
-            int a = randomNumber1;
-            int b = randomNumber2;
-
-            while (b != 0) {
-                int tmp = a % b;
-                a = b;
-                b = tmp;
-            }
-            corAnswer = a;
 
             questions[i] = randomNumber1 + " " + randomNumber2;
-            corAnswers[i] = Integer.toString(corAnswer);
+            corAnswers[i] = Integer.toString(getGCD(randomNumber1, randomNumber2));
         }
 
         Engine.start(gameConditions, questions, corAnswers);

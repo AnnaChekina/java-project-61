@@ -23,6 +23,17 @@ public final class Calc {
         return signs[numSign];
     }
 
+    static int getCalcSolution(int num1, int num2, String sign) {
+        int corAnswer;
+        corAnswer = switch (sign) {
+            case " + " -> num1 + num2;
+            case " - " -> num1 - num2;
+            case " * " -> num1 * num2;
+            default -> throw new IllegalStateException("Unexpected value: " + sign);
+        };
+        return corAnswer;
+    }
+
     public static void calcGame() {
         String gameConditions = "What is the result of the expression?";
         String[] questions = new String[QUANTITY_ROUNDS];
@@ -31,22 +42,14 @@ public final class Calc {
         int randomNumber1;
         int randomNumber2;
         String randomSign;
-        int corAnswer;
 
         for (var i = 0; i < QUANTITY_ROUNDS; i++) {
             randomNumber1 = getRandomNumber();
             randomNumber2 = getRandomNumber();
             randomSign = getRandomSign();
 
-            corAnswer = switch (randomSign) {
-                case " + " -> randomNumber1 + randomNumber2;
-                case " - " -> randomNumber1 - randomNumber2;
-                case " * " -> randomNumber1 * randomNumber2;
-                default -> throw new IllegalStateException("Unexpected value: " + randomSign);
-            };
-
             questions[i] = randomNumber1 + randomSign + randomNumber2;
-            corAnswers[i] = Integer.toString(corAnswer);
+            corAnswers[i] = Integer.toString(getCalcSolution(randomNumber1, randomNumber2, randomSign));
         }
 
         Engine.start(gameConditions, questions, corAnswers);
