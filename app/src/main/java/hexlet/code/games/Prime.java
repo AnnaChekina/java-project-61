@@ -11,7 +11,6 @@ public final class Prime {
 
     private static final Random RANDOM = new Random();
     private static final int MAX_RANDOM_NUMBER = 100;
-    private static final int QUANTITY_ROUNDS = 3;
 
     static int getRandomNumber() {
         return RANDOM.nextInt(MAX_RANDOM_NUMBER) + 1;
@@ -31,13 +30,13 @@ public final class Prime {
 
     public static void primeGame() {
         String gameConditions = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] questions = new String[QUANTITY_ROUNDS];
-        String[] corAnswers = new String[QUANTITY_ROUNDS];
+        String[] questions = new String[Engine.QUANTITY_ROUNDS];
+        String[] corAnswers = new String[Engine.QUANTITY_ROUNDS];
 
         int randomNumber;
         String corAnswer;
 
-        for (var i = 0; i < QUANTITY_ROUNDS; i++) {
+        for (var i = 0; i < Engine.QUANTITY_ROUNDS; i++) {
             randomNumber = getRandomNumber();
 
             if (isPrime(randomNumber)) {

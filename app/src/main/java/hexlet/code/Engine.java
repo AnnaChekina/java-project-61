@@ -8,7 +8,7 @@ public final class Engine {
         throw new IllegalStateException("Utility class");
     }
 
-    private static final int QUANTITY_ROUNDS = 3;
+    public static final int QUANTITY_ROUNDS = 3;
 
     public static void start(String gameConditions, String[] questions, String[] corAnswers) {
 
