@@ -18,8 +18,7 @@ public final class Even {
 
     public static void evenGame() {
         String gameConditions = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[] questions = new String[Engine.QUANTITY_ROUNDS];
-        String[] corAnswers = new String[Engine.QUANTITY_ROUNDS];
+        String[][] questionsAndAnswers = new String[Engine.QUANTITY_ROUNDS][2];
 
         int randomNumber;
         String corAnswer;
@@ -33,10 +32,10 @@ public final class Even {
                 corAnswer = "no";
             }
 
-            questions[i] = Integer.toString(randomNumber);
-            corAnswers[i] = corAnswer;
+            questionsAndAnswers[i][0] = Integer.toString(randomNumber);
+            questionsAndAnswers[i][1] = corAnswer;
         }
 
-        Engine.start(gameConditions, questions, corAnswers);
+        Engine.start(gameConditions, questionsAndAnswers);
     }
 }

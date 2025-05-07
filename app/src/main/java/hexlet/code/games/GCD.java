@@ -27,8 +27,7 @@ public final class GCD {
 
     public static void gcdGame() {
         String gameConditions = "Find the greatest common divisor of given numbers.";
-        String[] questions = new String[Engine.QUANTITY_ROUNDS];
-        String[] corAnswers = new String[Engine.QUANTITY_ROUNDS];
+        String[][] questionsAndAnswers = new String[Engine.QUANTITY_ROUNDS][2];
 
         int randomNumber1;
         int randomNumber2;
@@ -37,10 +36,10 @@ public final class GCD {
             randomNumber1 = getRandomNumber();
             randomNumber2 = getRandomNumber();
 
-            questions[i] = randomNumber1 + " " + randomNumber2;
-            corAnswers[i] = Integer.toString(getGCD(randomNumber1, randomNumber2));
+            questionsAndAnswers[i][0] = randomNumber1 + " " + randomNumber2;
+            questionsAndAnswers[i][1] = Integer.toString(getGCD(randomNumber1, randomNumber2));
         }
 
-        Engine.start(gameConditions, questions, corAnswers);
+        Engine.start(gameConditions, questionsAndAnswers);
     }
 }

@@ -10,7 +10,7 @@ public final class Engine {
 
     public static final int QUANTITY_ROUNDS = 3;
 
-    public static void start(String gameConditions, String[] questions, String[] corAnswers) {
+    public static void start(String gameConditions, String[][] questionsAndAnswers) {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -22,13 +22,14 @@ public final class Engine {
         System.out.println(gameConditions);
 
         for (var i = 0; i < QUANTITY_ROUNDS; i++) {
-            System.out.println("Question: " + questions[i]);
+            System.out.println("Question: " + questionsAndAnswers[i][0]);
             System.out.print("Your answer: ");
             String answer = scanner.nextLine().trim();
-            if (corAnswers[i].equals(answer)) {
+            if (questionsAndAnswers[i][1].equals(answer)) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + corAnswers[i] + "'.");
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
+                        + questionsAndAnswers[i][1] + "'.");
                 System.out.println("Let's try again, " + userName + "!");
                 return;
             }

@@ -35,8 +35,7 @@ public final class Calc {
 
     public static void calcGame() {
         String gameConditions = "What is the result of the expression?";
-        String[] questions = new String[Engine.QUANTITY_ROUNDS];
-        String[] corAnswers = new String[Engine.QUANTITY_ROUNDS];
+        String[][] questionsAndAnswers = new String[Engine.QUANTITY_ROUNDS][2];
 
         int randomNumber1;
         int randomNumber2;
@@ -47,10 +46,10 @@ public final class Calc {
             randomNumber2 = getRandomNumber();
             randomSign = getRandomSign();
 
-            questions[i] = randomNumber1 + randomSign + randomNumber2;
-            corAnswers[i] = Integer.toString(getCalcSolution(randomNumber1, randomNumber2, randomSign));
+            questionsAndAnswers[i][0] = randomNumber1 + randomSign + randomNumber2;
+            questionsAndAnswers[i][1] = Integer.toString(getCalcSolution(randomNumber1, randomNumber2, randomSign));
         }
 
-        Engine.start(gameConditions, questions, corAnswers);
+        Engine.start(gameConditions, questionsAndAnswers);
     }
 }

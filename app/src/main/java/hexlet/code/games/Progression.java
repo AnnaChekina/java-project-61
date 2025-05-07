@@ -36,16 +36,15 @@ public final class Progression {
 
     public static void progressionGame() {
         String gameConditions = "What number is missing in the progression?";
-        String[] questions = new String[Engine.QUANTITY_ROUNDS];
-        String[] corAnswers = new String[Engine.QUANTITY_ROUNDS];
+        String[][] questionsAndAnswers = new String[Engine.QUANTITY_ROUNDS][2];
 
         for (var i = 0; i < Engine.QUANTITY_ROUNDS; i++) {
             String[] roundData = generateRoundData();
 
-            questions[i] = roundData[0];
-            corAnswers[i] = roundData[1];
+            questionsAndAnswers[i][0] = roundData[0];
+            questionsAndAnswers[i][1] = roundData[1];
         }
 
-        Engine.start(gameConditions, questions, corAnswers);
+        Engine.start(gameConditions, questionsAndAnswers);
     }
 }

@@ -30,8 +30,7 @@ public final class Prime {
 
     public static void primeGame() {
         String gameConditions = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] questions = new String[Engine.QUANTITY_ROUNDS];
-        String[] corAnswers = new String[Engine.QUANTITY_ROUNDS];
+        String[][] questionsAndAnswers = new String[Engine.QUANTITY_ROUNDS][2];
 
         int randomNumber;
         String corAnswer;
@@ -45,10 +44,10 @@ public final class Prime {
                 corAnswer = "no";
             }
 
-            questions[i] = Integer.toString(randomNumber);
-            corAnswers[i] = corAnswer;
+            questionsAndAnswers[i][0] = Integer.toString(randomNumber);
+            questionsAndAnswers[i][1] = corAnswer;
         }
 
-        Engine.start(gameConditions, questions, corAnswers);
+        Engine.start(gameConditions, questionsAndAnswers);
     }
 }
