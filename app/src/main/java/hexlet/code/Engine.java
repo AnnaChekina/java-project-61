@@ -12,13 +12,14 @@ public final class Engine {
 
     public static void start(String gameConditions, String[] questions, String[] corAnswers) {
 
-        Cli.greeting();
-
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println(gameConditions);
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.nextLine().trim();
+        System.out.println("Hello, " + userName + "!");
 
-        boolean gameOver = true;
+        System.out.println(gameConditions);
 
         for (var i = 0; i < QUANTITY_ROUNDS; i++) {
             System.out.println("Question: " + questions[i]);
@@ -28,13 +29,10 @@ public final class Engine {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + corAnswers[i] + "'.");
-                System.out.println("Let's try again, " + Cli.getUserName() + "!");
-                gameOver = false;
-                break;
+                System.out.println("Let's try again, " + userName + "!");
+                return;
             }
         }
-        if (gameOver) {
-            System.out.println("Congratulations, " + Cli.getUserName() + "!");
-        }
+        System.out.println("Congratulations, " + userName + "!");
     }
 }
