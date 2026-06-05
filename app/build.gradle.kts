@@ -2,7 +2,7 @@ plugins {
     application
     id("checkstyle")
     id("com.github.ben-manes.versions") version "0.52.0"
-    id("org.sonarqube") version "6.0.1.5171"
+    id("org.sonarqube") version "7.3.1.8318"
 }
 
 group = "hexlet.code"
@@ -30,9 +30,8 @@ tasks.getByName("run", JavaExec::class) {
 }
 
 sonar {
-    properties {
-        property("sonar.projectKey", "AnnaChekina_java-project-61")
-        property("sonar.organization", "annachekina")
-        property("sonar.host.url", "https://sonarcloud.io")
-    }
+  properties {
+    property("sonar.projectKey", "AnnaChekina_java-project-61")
+    property("sonar.organization", "annachekina")
+  }
 }
